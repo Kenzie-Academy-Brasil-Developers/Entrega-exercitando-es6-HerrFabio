@@ -1,4 +1,4 @@
-const productsList = require('./database.js'); // Importar a base de dados
+const productsList = require('./database'); 
 
 const calculateTotalCost = (customerName, products, discount = 0) => {
   let totalCost = 0;
@@ -10,18 +10,24 @@ const calculateTotalCost = (customerName, products, discount = 0) => {
   if (discount > 0 && discount <= 100) {
     const discountAmount = (totalCost * discount) / 100;
     totalCost -= discountAmount;
-    
-   console.log( ` Olá, ${customerName}!  O total da sua compra é R$ ${totalCost.toFixed(2)} (${discount}% no valor total.).`);
-  }else{
-
-      console.log(`Olá, ${customerName}! O valor total da sua compra é R$ ${totalCost.toFixed(2)} (sem desconto).`);
   }
 
+  let message = `Olá, ${customerName}! O valor total da sua compra é R$ ${totalCost.toFixed(2)}.`;
 
-  
+  if (discount > 0 && discount <= 100) {
+    message += ` Você obteve um desconto de ${discount}% no valor total.`;
+  }
 
-  return calculateTotalCost;
+  if (discount == 0) {
+    message += '(sem desconto)';
+  }
+
+  return message;
 };
 
-calculateTotalCost("Fabio", productsList, 0);
 
+const customerName = 'João';
+const discountPercentage = 0;
+
+const result = calculateTotalCost(customerName, productsList, discountPercentage);
+console.log(result);
