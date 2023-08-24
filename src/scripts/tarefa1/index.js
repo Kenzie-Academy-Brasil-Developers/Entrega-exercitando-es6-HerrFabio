@@ -12,14 +12,14 @@ const calculateTotalCost = (customerName, products, discount = 0) => {
     totalCost -= discountAmount;
   }
 
-  let message = `Olá, ${customerName}! O valor total da sua compra é R$ ${totalCost.toFixed(2)}.`;
+  let message = `Olá, ${customerName}! O valor total da sua compra é R$ ${totalCost.toFixed(2)},`;
 
   if (discount > 0 && discount <= 100) {
-    message += ` Você obteve um desconto de ${discount}% no valor total.`;
+    message += ` você obteve um desconto de ${discount}% no valor total.`;
   }
 
   if (discount == 0) {
-    message += '(sem desconto)';
+    message += '(sem desconto).';
   }
 
   return message;
@@ -27,7 +27,7 @@ const calculateTotalCost = (customerName, products, discount = 0) => {
 
 
 const customerName = 'João';
-const discountPercentage = 0;
+const discountPercentage = 15;
 
 const result = calculateTotalCost(customerName, productsList, discountPercentage);
 console.log(result);
