@@ -30,8 +30,7 @@ const getTasksDescriptions = tasks  => {
     const changeTasks = tasks.findIndex(task => task.id === id);
       
       if(changeTasks === -1){
-        // console.log('Tarefa não encontrada.');
-
+        
         return 'Tarefa não encontrada.';
       }
     
