@@ -30,14 +30,14 @@ const getTasksDescriptions = tasks  => {
     const changeTasks = tasks.findIndex(task => task.id === id);
       
       if(changeTasks === -1){
-        console.log('Tarefa não encontrada.');
+        // console.log('Tarefa não encontrada.');
 
-        return tasks;
+        return 'Tarefa não encontrada.';
       }
     
       const removedTask = tasks.splice(changeTasks, 1);
-      return removedTask;
+      return tasks;
 
   }
 
-  console.log(removeTask(1, 12));
+  console.log(removeTask(1, 111));
